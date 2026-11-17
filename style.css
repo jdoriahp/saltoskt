@@ -1,0 +1,74 @@
+:root{
+  --wall:#a39e95; --wall2:#8f8a81; --ink:#1b1a19; --paper:#f3efe4;
+  --pink:#ff2e88; --yellow:#ffd400; --cyan:#00b8c8; --green:#37d67a;
+  --card:#f3efe4; --cardtxt:#1b1a19; --river:#00b8c8; --land:#d8d2c4;
+  --sp:#ff2e88;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --wall:#3a3835; --wall2:#2d2b29; --ink:#f3efe4; --paper:#1b1a19; --card:#232120; --cardtxt:#f3efe4; --land:#3d3a36;
+}}
+:root[data-theme="dark"]{--wall:#3a3835; --wall2:#2d2b29; --ink:#f3efe4; --paper:#1b1a19; --card:#232120; --cardtxt:#f3efe4; --land:#3d3a36;}
+html{height:auto;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:400 1.05rem/1.55 "Barlow",system-ui,sans-serif;
+  background-color:var(--wall);
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 118px,rgba(0,0,0,.14) 118px 120px),
+    repeating-linear-gradient(90deg,transparent 0 238px,rgba(0,0,0,.1) 238px 240px),
+    radial-gradient(circle at 20% 10%,rgba(255,255,255,.12),transparent 40%),
+    radial-gradient(circle at 80% 90%,rgba(0,0,0,.2),transparent 45%);
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--wall2);z-index:20}
+.wrap{max-width:1040px;margin:0 auto;padding:1.2rem 1rem 4rem}
+h1,h2,h3{font-family:"Permanent Marker","Marker Felt",cursive;font-weight:400;margin:0;line-height:1.05}
+.logo{font-family:"Rubik Spray Paint","Permanent Marker",Impact,sans-serif;font-size:clamp(2.6rem,10vw,5.6rem);line-height:.95;
+  color:var(--yellow);text-shadow:4px 4px 0 var(--ink),-2px -2px 0 var(--pink);transform:rotate(-2deg);margin:.6rem 0 0;letter-spacing:.01em}
+.sub{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:.04em;
+  background:var(--ink);color:var(--paper);display:inline-block;padding:.15rem .7rem;transform:rotate(1deg);margin:.6rem 0 1.2rem}
+
+
+.card{background:var(--card);color:var(--cardtxt);border:3px solid var(--ink);border-radius:.3rem;padding:1.2rem;box-shadow:6px 6px 0 var(--ink);margin-bottom:1.4rem}
+.tape{position:relative}
+.tape::before{content:"";position:absolute;top:-14px;left:1.5rem;width:90px;height:26px;background:rgba(255,212,0,.85);transform:rotate(-4deg);border:1px dashed rgba(0,0,0,.25)}
+h2{font-size:clamp(1.7rem,5vw,2.6rem);margin-bottom:.6rem}
+h3{font-size:1.4rem;margin-bottom:.4rem}
+p{margin:.5rem 0;max-width:68ch}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+mark{background:var(--yellow);color:#1b1a19;padding:0 .25em}
+
+/* pessoas */
+.person{position:relative;overflow:hidden}
+.person .tag{font-family:"Barlow Condensed",sans-serif;font-weight:700;display:inline-block;background:var(--ink);color:var(--paper);padding:.05rem .6rem;margin-bottom:.5rem}
+blockquote{margin:.8rem 0 0;padding:.6rem .9rem;border-left:6px solid var(--pink);background:rgba(255,46,136,.12);font-style:italic}
+.pain{list-style:none;padding:0;margin:.5rem 0}
+.pain li{padding:.35rem 0 .35rem 1.8rem;position:relative;border-bottom:2px dashed rgba(127,127,127,.4)}
+.pain li::before{content:"✕";position:absolute;left:0;color:var(--pink);font-weight:700}
+
+/* app */
+.phones{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.phone{background:#fff;color:#1b1a19;border:8px solid #1b1a19;border-radius:1.6rem;padding:.8rem;min-height:300px;font-size:.9rem;box-shadow:5px 5px 0 var(--pink)}
+.phone b.brand{color:#ff6a00;font-size:1.2rem}
+.chip{display:inline-block;border:1.5px solid #555;border-radius:2rem;padding:0 .5rem;font-size:.75rem;margin:.1rem}
+.chip.on{border-color:#ff6a00;font-weight:700}
+.row{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:.4rem 0}
+.row small{color:#666}
+.pin{display:inline-block;width:12px;height:12px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#ff6a00;margin:.7rem 1.2rem}
+.cap{font-family:"Permanent Marker",cursive;margin-top:.5rem;text-align:center}
+
+.team{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;list-style:none}
+.team li{background:var(--yellow);color:#1b1a19;border:3px solid var(--ink);padding:.3rem .8rem;font-family:"Permanent Marker",cursive;transform:rotate(-1deg)}
+.team li:nth-child(even){background:var(--cyan);transform:rotate(1.2deg)}
+footer{text-align:center;font-family:"Permanent Marker",cursive;margin-top:2rem;color:var(--paper);text-shadow:2px 2px 0 var(--ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* menu fixo */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:.5rem;flex-wrap:wrap;padding:.6rem 0;margin-bottom:1rem;background:var(--wall)}
+.nav a{font-family:"Permanent Marker",cursive;color:#1b1a19;background:var(--paper);border:3px solid var(--ink);padding:.25rem .9rem;border-radius:.3rem;text-decoration:none;box-shadow:3px 3px 0 var(--ink);transform:rotate(-1deg)}
+.nav a:nth-child(even){transform:rotate(1deg)}
+.nav a:hover{transform:rotate(0)}
+.nav a:focus-visible{outline:4px solid var(--cyan);outline-offset:3px}
+.nav a.ativo{background:var(--pink);color:#fff;box-shadow:none}
+section{scroll-margin-top:4.5rem}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
